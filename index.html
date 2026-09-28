@@ -8,16 +8,28 @@
 <body>
     <div id="lugarObjeto"></div>
 <script>
-    const Mascota1 = {
-        nombre: "Pedro",
-        color: "Naranja",
-        tipo: "Hamster"
-    };
-    document.getElementById("lugarObjeto").innerHTML = 
-    "<p> Nombre:" + Mascota1.nombre + "</p>" +
-    "<p> Color:" + Mascota1.color + "</p>" +
-    "<p> Tipo:" + Mascota1.tipo + "</p>";
+ 
+    class Mascota {
+        constructor(nombre, color, tipo) {
+            this.nombre = nombre;
+            this.color = color;
+            this.tipo = tipo;
+        }
+
+        Saludar(){
+            return "Hola, soy " + this.nombre + " y soy un " + this.tipo + " de color " + this.color;
+        }
+    }
     
+    const Mascota1 = new Mascota("Pedro", "Naranja", "Hamster");
+    const Mascota2 = new Mascota("Luna", "Blanco", "Gato");
+    const Mascota3 = new Mascota("Max", "Negro", "Perro");
+
+    document.getElementById("lugarObjeto").innerHTML += "<p>" + Mascota1.Saludar() + "</p>";
+    document.getElementById("lugarObjeto").innerHTML += "<p>" + Mascota2.Saludar() + "</p>";
+    document.getElementById("lugarObjeto").innerHTML += "<p>" + Mascota3.Saludar() + "</p>";
+    
+    console.log(Mascota.Saludar());
 </script>
 </body>
 </html>
